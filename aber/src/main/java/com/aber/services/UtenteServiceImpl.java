@@ -13,20 +13,12 @@ public class UtenteServiceImpl implements UtenteService {
 	UtenteDAO dao;
 
 	@Override
-	public Utente setScore(Utente utente,int score) {
+	public Utente setScore(Utente utente,int score) throws IllegalArgumentException {
 		
 		if (score < -100 ||score > 200) {
-			return utente;
+			throw new IllegalArgumentException("Valore dello score errato");
 		}
-		
-		if(UtenteUtils.validateUtente(utente)) {
-			utente.setScore(score);
-			return dao.save(utente);
-	
-		}else
-			
-			return utente;
-		
+		return dao.save(utente);
 	}
 
 }
