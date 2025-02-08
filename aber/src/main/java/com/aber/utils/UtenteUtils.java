@@ -11,8 +11,9 @@ import java.util.random.RandomGenerator;
 
 import org.apache.el.util.ExceptionUtils;
 
-
+import com.aber.DTO.TransazioneDTO;
 import com.aber.DTO.UtenteRegDTO;
+import com.aber.entities.Transazione;
 import com.aber.entities.Utente;
 import com.aber.enums.MultiplierUSER;
 
@@ -44,13 +45,6 @@ public final class UtenteUtils {
 		    
 		    return (Double) random.toArray()[RandomGenerator.getDefault().nextInt(MultiplierUSER.values().length)];
 		}
-		
-		
-
-		
-		
-		
-		
 		
 		
 		

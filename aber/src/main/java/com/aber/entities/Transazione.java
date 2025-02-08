@@ -3,6 +3,7 @@ package com.aber.entities;
 import java.security.Timestamp;
 import java.sql.Date;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -17,29 +18,40 @@ public class Transazione {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@ManyToOne(fetch = FetchType.LAZY)
-	private Utente utente;
+	private Utente venditore;
 	@ManyToOne(fetch = FetchType.LAZY)
-	private Oggetto oggetto;
+	private Utente acquirente;
+	private Long oggettoId;
 	private Integer quantità;
 	private Double spesaTotale;
 	private Date dataTransazione;
+	
+	
+	
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Utente getUtente() {
-		return utente;
+	
+	public Utente getVenditore() {
+		return venditore;
 	}
-	public void setUtente(Utente utente) {
-		this.utente = utente;
+	public void setVenditore(Utente venditore) {
+		this.venditore = venditore;
 	}
-	public Oggetto getOggetto() {
-		return oggetto;
+	public Utente getAcquirente() {
+		return acquirente;
 	}
-	public void setOggetto(Oggetto oggetto) {
-		this.oggetto = oggetto;
+	public void setAcquirente(Utente acquirente) {
+		this.acquirente = acquirente;
+	}
+	public Long getOggettoId() {
+		return oggettoId;
+	}
+	public void setOggettoId(Long oggettoId) {
+		this.oggettoId = oggettoId;
 	}
 	public Integer getQuantità() {
 		return quantità;

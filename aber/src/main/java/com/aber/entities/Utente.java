@@ -1,9 +1,13 @@
 package com.aber.entities;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Utente {
@@ -16,6 +20,12 @@ public class Utente {
 	private Long saldo;
 	private String immagineProfilo;
 	private Double multiplier;
+	@OneToMany(fetch =FetchType.LAZY,mappedBy = "venditore")
+	private List<Oggetto> oggettiInVendita;
+	@OneToMany(fetch = FetchType.LAZY,mappedBy = "acquirente")
+	private List<Transazione> transazioniAcquisti;
+	@OneToMany(fetch = FetchType.LAZY,mappedBy = "venditore")
+	private List<Transazione> transazioniVendite;
 	
 	
 	

@@ -3,14 +3,18 @@ package com.aber.services;
 import java.util.List;
 
 import com.aber.DTO.TransazioneDTO;
+import com.aber.entities.Oggetto;
+import com.aber.entities.Utente;
 
 import jakarta.servlet.http.HttpSession;
 
-public interface TransazioneService {
 
-	public List<TransazioneDTO> getTransazioniByUtente(Long utenteId);
+public interface TransazioneService {
 	
-	public List<TransazioneDTO> getTransazioniByOggetto(Long oggettoId);
+
+	public List<TransazioneDTO> getTransazioniByUtente(Utente utente);
+	
+	public List<TransazioneDTO> getTransazioniByOggetto(Oggetto oggetto);
 	
 	public void saveTransazione(TransazioneDTO transazioneDTO);
 

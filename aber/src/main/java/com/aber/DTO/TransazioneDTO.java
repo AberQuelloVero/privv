@@ -3,17 +3,28 @@ package com.aber.DTO;
 import java.sql.Date;
 
 public class TransazioneDTO {
-
-	private Long utenteId;
+	
+	private Long acquirenteID;
+	private Long venditoreID;
 	private Long oggettoId;
 	private Integer quantità;
 	private Double spesaTotale;
 	private Date dataTransazione;
-	public Long getUtenteId() {
-		return utenteId;
+	
+	
+	
+	
+	public Long getAcquirenteID() {
+		return acquirenteID;
 	}
-	public void setUtenteId(Long utenteId) {
-		this.utenteId = utenteId;
+	public void setAcquirenteID(Long acquirenteID) {
+		this.acquirenteID = acquirenteID;
+	}
+	public Long getVenditoreID() {
+		return venditoreID;
+	}
+	public void setVenditoreID(Long venditoreID) {
+		this.venditoreID = venditoreID;
 	}
 	public Long getOggettoId() {
 		return oggettoId;

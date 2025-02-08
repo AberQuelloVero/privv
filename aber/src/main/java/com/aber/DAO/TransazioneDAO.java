@@ -11,8 +11,11 @@ import com.aber.entities.Utente;
 
 @Repository
 public interface TransazioneDAO extends JpaRepository<Transazione,Long> {
-	public List<Transazione> findTransazioneByUtente(Utente utente);
 	
-	public List<Transazione> findTransazioneByOggetto(Oggetto oggetto);
+	public List<Transazione> findByAcquirente(Utente utente);
+	
+	public List<Transazione> findByVenditore(Utente utente);
+	
+	public List<Transazione> findByOggettoId(Long oggettoId);
 
 }
