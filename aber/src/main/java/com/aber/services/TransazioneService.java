@@ -12,7 +12,9 @@ import jakarta.servlet.http.HttpSession;
 public interface TransazioneService {
 	
 
-	public List<TransazioneDTO> getTransazioniByUtente(Utente utente);
+	public List<TransazioneDTO> getTransazioniByUtenteAcquisti(Utente utente);
+	
+	public List<TransazioneDTO> getTransazioniByUtenteVendite(Utente utente);
 	
 	public List<TransazioneDTO> getTransazioniByOggetto(Oggetto oggetto);
 	

@@ -19,9 +19,19 @@ public class TransazioneServiceImpl implements TransazioneService {
 	
 
 	@Override
-	public List<TransazioneDTO> getTransazioniByUtente(Utente utente) {
+	public List<TransazioneDTO> getTransazioniByUtenteVendite(Utente utente) {
 		
-			List<Transazione> transazioni = transazioneDAO.findByUtente(utente); 
+			List<Transazione> transazioni = transazioneDAO.findByVenditore(utente); 
+			
+			List<TransazioneDTO> transazioniDTO = null;
+		
+		return transazioniDTO;
+	}
+	
+	@Override
+	public List<TransazioneDTO> getTransazioniByUtenteAcquisti(Utente utente) {
+		
+			List<Transazione> transazioni = transazioneDAO.findByAcquirente(utente); 
 			
 			List<TransazioneDTO> transazioniDTO = null;
 		
