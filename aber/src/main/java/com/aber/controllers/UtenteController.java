@@ -36,14 +36,7 @@ public class UtenteController {
 	
 	@GetMapping(value = "list")
 	public List<Utente> getAllUtenti(){
-		try {
-			Double random = UtenteUtils.getRandomValuesForMultiplier();
-			
-			
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-		}
+	
 		return dao.findAll();
 	}
 	
