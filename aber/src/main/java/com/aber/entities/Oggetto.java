@@ -8,7 +8,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
 @Entity
-public abstract class Oggetto {	
+public  class Oggetto {	
 		
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -71,6 +71,10 @@ public abstract class Oggetto {
 		this.costo = costo;
 		this.imageUrl = imageUrl;
 	}
+	public Oggetto() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	
 	
 	

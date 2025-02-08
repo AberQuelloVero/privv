@@ -9,12 +9,17 @@ public class WebController {
 
 	@GetMapping("addUtente")
 	public String getAddUserFormPage() {
-		return "addUtente";
+		return "Utente/addUtente";
 	}
 	
 @GetMapping("user-list")
 public String  getUserListPage() {
-    return "list";
+    return "Utente/list";
+}
+
+@GetMapping("aggiungi-oggetto")
+public String aggiungiOggetto() {
+	return "Oggetto/aggiungi_oggetto";
 }
 
 	

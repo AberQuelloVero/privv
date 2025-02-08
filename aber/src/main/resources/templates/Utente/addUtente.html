@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aggiungi Utente</title>
+    <script>
+        async function submitForm(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const formData = new FormData(event.target); // Get the form data
+            const utente = {
+                nome: formData.get('nome'),
+                cognome: formData.get('cognome'),
+                imageURL: formData.get('imageURL')
+            };
+
+            try {
+                const response = await fetch('api/utente/addUtente', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json' // Set the content type to JSON
+                    },
+                    body: JSON.stringify(utente) // Convert the object to JSON
+                });
+
+                if (!response.ok) {
+                    throw new Error('Errore nella richiesta: ' + response.status);
+                }
+
+                const result = await response.json();
+                console.log('Utente aggiunto:', result);
+                alert('Utente aggiunto con successo!');
+            } catch (error) {
+                console.error('Errore:', error);
+                alert('Si è verificato un errore durante l\'aggiunta dell\'utente.');
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Aggiungi Utente</h1>
+    <form onsubmit="submitForm(event)">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required><br><br>
+
+        <label for="cognome">Cognome:</label>
+        <input type="text" id="cognome" name="cognome" required><br><br>
+
+        <label for="imageURL">URL Immagine:</label>
+        <input type="url" id="imageURL" name="imageURL"><br><br>
+
+        <button type="submit">Aggiungi Utente</button>
+    </form>
+</body>
+</html>
