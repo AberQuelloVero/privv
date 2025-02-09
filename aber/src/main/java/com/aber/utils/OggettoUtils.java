@@ -18,6 +18,7 @@ public final class OggettoUtils {
 		
 		OggettoDTO oggettoDTO = new OggettoDTO();
 		
+		oggettoDTO.setId(oggetto.getId());
 		oggettoDTO.setCosto(oggetto.getCosto());
 		oggettoDTO.setImageUrl(oggetto.getImageUrl());
 		oggettoDTO.setMultiplier(oggetto.getMultiplier());
@@ -32,6 +33,7 @@ public final class OggettoUtils {
 	    
 		Oggetto oggetto = new Oggetto();
 	    
+		oggetto.setId(oggettoDTO.getId());
 	    oggetto.setCosto(oggettoDTO.getCosto());
 	    oggetto.setImageUrl(oggettoDTO.getImageUrl());
 	    oggetto.setMultiplier(oggettoDTO.getMultiplier());

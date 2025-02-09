@@ -33,4 +33,21 @@ public class OggettoServiceImpl implements OggettoService {
 		oggettoDAO.save(oggetto);						
 	}
 
+
+
+	@Override
+	public void updateQuantitàOggetto(OggettoDTO oggettoDTO,Integer oggettiVenduti) throws Exception {
+		
+		Oggetto oggetto = oggettoDAO.findById(oggettoDTO.getId()).orElseThrow();
+		
+		oggetto.setQuantità(oggetto.getQuantità()-oggettiVenduti);
+		
+		if(oggetto.getQuantità()<0)
+			throw new Exception("La quantità rimanente non può essere minore di zero");
+		
+		oggettoDAO.save(oggetto);
+	}
+		
+		
+
 }

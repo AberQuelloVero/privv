@@ -7,5 +7,7 @@ public interface OggettoService {
 	
 	public void salvaOggetto(OggettoDTO oggettoDTO);
 	
+	public void updateQuantitàOggetto(OggettoDTO oggettoDTO,Integer oggettiVenduti) throws Exception;
+	
 	
 }

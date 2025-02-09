@@ -1,5 +1,6 @@
 package com.aber.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import com.aber.DTO.TransazioneDTO;
 import com.aber.entities.Oggetto;
 import com.aber.entities.Transazione;
 import com.aber.entities.Utente;
+import com.aber.utils.TransazioniUtils;
 
 @Service
 public class TransazioneServiceImpl implements TransazioneService {
@@ -23,7 +25,15 @@ public class TransazioneServiceImpl implements TransazioneService {
 		
 			List<Transazione> transazioni = transazioneDAO.findByVenditore(utente); 
 			
-			List<TransazioneDTO> transazioniDTO = null;
+			List<TransazioneDTO> transazioniDTO = new ArrayList<TransazioneDTO>();
+
+			for(Transazione transazione : transazioni) {
+				
+				transazioniDTO.add(TransazioniUtils.convertToDTO(transazione));
+				
+			}
+			
+			
 		
 		return transazioniDTO;
 	}
@@ -33,7 +43,13 @@ public class TransazioneServiceImpl implements TransazioneService {
 		
 			List<Transazione> transazioni = transazioneDAO.findByAcquirente(utente); 
 			
-			List<TransazioneDTO> transazioniDTO = null;
+			List<TransazioneDTO> transazioniDTO = new ArrayList<TransazioneDTO>();
+
+			for(Transazione transazione : transazioni) {
+				
+				transazioniDTO.add(TransazioniUtils.convertToDTO(transazione));
+				
+			}
 		
 		return transazioniDTO;
 	}

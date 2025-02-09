@@ -2,6 +2,7 @@ package com.aber.DTO;
 
 public class OggettoDTO {
 	
+	private Long id;
 	private String nome;
 	private Double costo;
 	private String imageUrl;
@@ -10,6 +11,13 @@ public class OggettoDTO {
 	private Integer quantità;
 	
 	
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public String getNome() {
 		return nome;
 	}
