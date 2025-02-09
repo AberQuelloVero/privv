@@ -38,7 +38,7 @@ public class UtenteServiceImpl implements UtenteService {
 	}
 
 	
-	//utilizzo di stream() per una List 
+	
 	@Override
 	public List<TransazioneDTO> getTransazioniUtenteAcquisti(Utente utente) throws RuntimeException{
 	    try {

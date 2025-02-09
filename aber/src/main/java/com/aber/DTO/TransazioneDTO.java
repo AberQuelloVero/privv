@@ -4,6 +4,7 @@ import java.sql.Date;
 
 public class TransazioneDTO {
 	
+	private Long id;
 	private Long acquirenteID;
 	private Long venditoreID;
 	private Long oggettoId;
@@ -14,6 +15,12 @@ public class TransazioneDTO {
 	
 	
 	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public Long getAcquirenteID() {
 		return acquirenteID;
 	}
