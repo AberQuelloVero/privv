@@ -20,9 +20,16 @@ public  class Oggetto {
 	@ManyToOne
 	private Utente venditore;
 	private Integer quantità;
+	private boolean inVendita;
 	
 	
 	
+	public boolean isInVendita() {
+		return inVendita;
+	}
+	public void setInVendita(boolean inVendita) {
+		this.inVendita = inVendita;
+	}
 	public Utente getVenditore() {
 		return venditore;
 	}

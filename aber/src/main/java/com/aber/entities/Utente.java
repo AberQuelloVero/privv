@@ -17,7 +17,7 @@ public class Utente {
 	private String nome;
 	private String cognome;
 	private Integer score;
-	private Long saldo;
+	private Double saldo;
 	private String immagineProfilo;
 	private Double multiplier;
 	@OneToMany(fetch =FetchType.LAZY,mappedBy = "venditore")
@@ -68,11 +68,29 @@ public class Utente {
 		this.score = score;
 	}
 	
-	public Long getSaldo() {
+	public Double getSaldo() {
 		return saldo;
 	}
-	public void setSaldo(Long saldo) {
+	public void setSaldo(Double saldo) {
 		this.saldo = saldo;
+	}
+	public List<Oggetto> getOggettiInVendita() {
+		return oggettiInVendita;
+	}
+	public void setOggettiInVendita(List<Oggetto> oggettiInVendita) {
+		this.oggettiInVendita = oggettiInVendita;
+	}
+	public List<Transazione> getTransazioniAcquisti() {
+		return transazioniAcquisti;
+	}
+	public void setTransazioniAcquisti(List<Transazione> transazioniAcquisti) {
+		this.transazioniAcquisti = transazioniAcquisti;
+	}
+	public List<Transazione> getTransazioniVendite() {
+		return transazioniVendite;
+	}
+	public void setTransazioniVendite(List<Transazione> transazioniVendite) {
+		this.transazioniVendite = transazioniVendite;
 	}
 	public Utente(String nome, String cognome) {
 		super();

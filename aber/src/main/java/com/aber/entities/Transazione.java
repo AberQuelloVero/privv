@@ -3,6 +3,8 @@ package com.aber.entities;
 import java.security.Timestamp;
 import java.sql.Date;
 
+import com.aber.enums.MultiplierUSER;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -32,6 +34,7 @@ public class Transazione {
 		return id;
 	}
 	public void setId(Long id) {
+		
 		this.id = id;
 	}
 	

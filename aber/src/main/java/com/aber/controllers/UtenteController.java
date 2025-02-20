@@ -41,6 +41,8 @@ public class UtenteController {
 	}
 	
 	
+	
+	
 	@PostMapping("addUtente")
 	public Utente addUtente(@RequestBody UtenteRegDTO utente) throws Exception {
 	
@@ -53,7 +55,7 @@ public class UtenteController {
 		utente2.setCognome(utente.getCognome());
 		utente2.setImmagineProfilo(utente.getImageURL());
 		utente2.setMultiplier(0.0);
-		utente2.setSaldo((long) 0);
+		utente2.setSaldo(0.0);
 		utente2.setScore(0);
 		
 		return dao.save(utente2);

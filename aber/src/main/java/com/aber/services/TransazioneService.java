@@ -19,5 +19,7 @@ public interface TransazioneService {
 	public List<TransazioneDTO> getTransazioniByOggetto(Oggetto oggetto);
 	
 	public void saveTransazione(TransazioneDTO transazioneDTO);
+	
+	public void acquistaOggetto(Utente utente,Oggetto oggetto,Integer quantita) throws Exception;
 
 }

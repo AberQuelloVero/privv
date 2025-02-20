@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista di Utenti</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card {
+            height: 100%; /* Rende tutte le card della stessa altezza */
+        }
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Distribuisce lo spazio all'interno della card */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1 class="text-center">Lista di Utenti</h1>
+    <div class="row" id="card-container">
+        <!-- Le card verranno generate dinamicamente qui -->
+    </div>
+</div>
+
+<!-- Bootstrap JS e dipendenze -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- JavaScript per Fetch e Generazione delle Card -->
+<script>
+    // Funzione per creare una card Bootstrap
+    function createCard(user) {
+        return `
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img src="${user.immagineProfilo}" class="card-img-top" alt="Immagine Profilo di ${user.nome} ${user.cognome}">
+                    <div class="card-body">
+                        <h5 class="card-title">${user.nome} ${user.cognome}</h5>
+                        <p class="card-text">Score: ${user.score}</p>
+                        <p class="card-text">Saldo: ${user.saldo}</p>
+                        <p class="card-text">Moltiplicatore: ${user.multiplier}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    // Funzione per effettuare la fetch e popolare le card
+    async function fetchUsers() {
+        try {
+            const response = await fetch('/api/utente/list'); // Cambia l'URL in base al tuo backend
+            if (!response.ok) {
+                throw new Error('Errore durante il recupero dei dati');
+            }
+            const users = await response.json();
+
+            // Seleziona il contenitore delle card
+            const cardContainer = document.getElementById('card-container');
+
+            // Genera le card per ogni utente
+            users.forEach(user => {
+                const cardHTML = createCard(user);
+                console.log(user);
+                console.log(user.imageurl);
+                cardContainer.innerHTML += cardHTML;
+            });
+        } catch (error) {
+            console.error('Errore:', error);
+        }
+    }
+
+    // Esegui la fetch quando la pagina è caricata
+    document.addEventListener('DOMContentLoaded', fetchUsers);
+</script>
+
+</body>
+</html>
